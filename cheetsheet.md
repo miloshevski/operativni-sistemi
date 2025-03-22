@@ -1,63 +1,68 @@
-ls - listanje na site datoteki na rabotniot imenik
-ls -a site datoteki od rabotniot imenik vklucuvajki gi i skrieni
-ls -s ja prikazuva sodrzinata na rtabotniot imenk i goleminite na datotekite vo KB
-ls | more ako ima povekoje datoteki vo imenikot da gi prikaze strana po strana
-ls -l gi prkazuva datotekite od rabotniot imenik vo tn dolg format
-
+ls - listanje na site datoteki na rabotniot imenik ls -a site datoteki od rabotniot imenik vklucuvajki gi i skrieni ls -s ja prikazuva sodrzinata na rtabotniot imenk i goleminite na datotekite vo KB ls | more ako ima povekoje datoteki vo imenikot da gi prikaze strana po strana ls -l gi prkazuva datotekite od rabotniot imenik vo tn dolg format
 
 ls -l
 
 ### Explanation of Columns:
-| Column | Description |
-|--------|-------------|
-| (1) | File type and permissions |
-| (2) | Number of hard links |
-| (3) | Owner of the file |
-| (4) | File size in bytes |
-| (5) | Last modification date/time |
-| (6) | Filename |
+
+| Column | Description                 |
+| ------ | --------------------------- |
+| (1)    | File type and permissions   |
+| (2)    | Number of hard links        |
+| (3)    | Owner of the file           |
+| (4)    | File size in bytes          |
+| (5)    | Last modification date/time |
+| (6)    | Filename                    |
 
 [File Type] [Owner] [Group] [Others] - SINTAKSA
 
 ### (1) File Type & Permissions:
+
 The first column shows file type and access permissions:
 
 - **File Type:**
-  - `-` : Regular file  
-  - `d` : Directory  
-  - `l` : Symbolic link  
 
-- **Permissions:**  
-  - `r` : Read permission  
-  - `w` : Write permission  
-  - `x` : Execute permission  
-  - `-` : No permission  
+  - `-` : Regular file
+  - `d` : Directory
+  - `l` : Symbolic link
+
+- **Permissions:**
+  - `r` : Read permission
+  - `w` : Write permission
+  - `x` : Execute permission
+  - `-` : No permission
 
 Example:  
-`drwxr-xr-x`  
-- `d` → Directory  
-- `rwx` → Owner has **read, write, execute** permissions  
-- `r-x` → Group has **read, execute** permissions  
-- `r-x` → Others have **read, execute** permissions  
+`drwxr-xr-x`
+
+- `d` → Directory
+- `rwx` → Owner has **read, write, execute** permissions
+- `r-x` → Group has **read, execute** permissions
+- `r-x` → Others have **read, execute** permissions
 
 ### (2) Number of Hard Links:
+
 Indicates how many hard links point to the file.
 
 ### (3) Owner:
+
 Displays the user who owns the file.
 
 ### (4) File Size:
+
 Shows the file size in **bytes**.
 
 ### (5) Last Modification Date:
-- If modified **this year** → shows **date and time**  
-- If modified **previous years** → shows **date and year**  
+
+- If modified **this year** → shows **date and time**
+- If modified **previous years** → shows **date and year**
 
 ### (6) Filename:
+
 The name of the file or directory.
 
 ## Example Usage:
-```bash
+
+````bash
 ls -l
 ls -lh  # Human-readable sizes
 ls -la  # Show hidden files
@@ -114,7 +119,7 @@ opcii:
 
 PREMESTUVANJE NA DATOTEKI I IMENICI -mv
 mv izvor odrediste - IZVOROT MOZE DA BIDE I DATOTEKA I IMENIK
-destinacijata e pateka(apsolutna ili relativa) do noviot imenik kade se vrzi premestuvanjeto 
+destinacijata e pateka(apsolutna ili relativa) do noviot imenik kade se vrzi premestuvanjeto
 Ако се наведе ново име на датотеката (именикот), таа ќе биде преместена под новото име
 
 mv moj.txt /users/student - moj.txt se premestuva vo /users/student pod istoto ime
@@ -192,3 +197,26 @@ Task 1: Complete the report.
 Task 2: Send the email.
 Task 3: Prepare the presentation.
 This demonstrates how the cat command can be used to append text to a file and then view the updated contents.
+
+KOPIRANJE NA DATOTEI SO OPERATOROT >
+cat resultss.csv > res.csv - zapisue ga results u res isto (overwrite)
+
+# Using the `cat` Command
+
+The `cat` command in Unix-like operating systems is a versatile tool for displaying, concatenating, and manipulating file contents. Below are examples and explanations of its usage.
+
+---
+
+## Displaying File Contents
+
+To display the contents of a file, use the `cat` command followed by the filename:
+
+```bash
+cat filename.txt
+
+cat one.txt
+This is the first file.
+
+cat two.txt
+This is the second file.
+````
