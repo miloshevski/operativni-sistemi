@@ -1,8 +1,16 @@
-ls - listanje na site datoteki na rabotniot imenik ls -a site datoteki od rabotniot imenik vklucuvajki gi i skrieni ls -s ja prikazuva sodrzinata na rtabotniot imenk i goleminite na datotekite vo KB ls | more ako ima povekoje datoteki vo imenikot da gi prikaze strana po strana ls -l gi prkazuva datotekite od rabotniot imenik vo tn dolg format
+# Linux Commands Cheat Sheet
 
-ls -l
+## `ls` - Listing Files and Directories
 
-### Explanation of Columns:
+- `ls` - Lists all files and directories in the current working directory.
+- `ls -a` - Lists all files, including hidden files (those starting with a dot `.`).
+- `ls -s` - Displays the contents of the directory along with file sizes in KB.
+- `ls | more` - Lists files page by page if there are too many to display at once.
+- `ls -l` - Lists files in the current directory in long format.
+
+### `ls -l` Explained
+
+#### Explanation of Columns:
 
 | Column | Description                 |
 | ------ | --------------------------- |
@@ -13,11 +21,11 @@ ls -l
 | (5)    | Last modification date/time |
 | (6)    | Filename                    |
 
-[File Type] [Owner] [Group] [Others] - SINTAKSA
+---
 
-### (1) File Type & Permissions:
+### (1) File Type & Permissions
 
-The first column shows file type and access permissions:
+The first column shows the file type and access permissions:
 
 - **File Type:**
 
@@ -31,7 +39,7 @@ The first column shows file type and access permissions:
   - `x` : Execute permission
   - `-` : No permission
 
-Example:  
+**Example:**  
 `drwxr-xr-x`
 
 - `d` → Directory
@@ -39,184 +47,86 @@ Example:
 - `r-x` → Group has **read, execute** permissions
 - `r-x` → Others have **read, execute** permissions
 
-### (2) Number of Hard Links:
+---
+
+### (2) Number of Hard Links
 
 Indicates how many hard links point to the file.
 
-### (3) Owner:
+---
+
+### (3) Owner
 
 Displays the user who owns the file.
 
-### (4) File Size:
+---
+
+### (4) File Size
 
 Shows the file size in **bytes**.
 
-### (5) Last Modification Date:
+---
+
+### (5) Last Modification Date
 
 - If modified **this year** → shows **date and time**
 - If modified **previous years** → shows **date and year**
 
-### (6) Filename:
+---
+
+### (6) Filename
 
 The name of the file or directory.
 
-## Example Usage:
+---
 
-````bash
+## Example Usage of `ls`
+
+```bash
 ls -l
 ls -lh  # Human-readable sizes
 ls -la  # Show hidden files
 
+chmod [options] mode file
 
-ls -l DOPOLNUVANJE
-
-type: tip na datoteka
-
-'-' obicna; d - imenik' l - vrska (link)
-user prava na pristap do datotekata za sopstvenikot na datotekata
-gruop - prava na prstap za korisnicite od istata grupa na korisnici na koja pripagja sopstvenikot na datotekata
-other - prava na prostap do datotekata za site ostanati korisnici na sistemot
-
-DOZVOLI ZA PRISTAP DO DATOTEKATA
-r - dozvola za ctanje
-w - dozvola za zapisuvanje
-x - dozvola za izvrsuvanje
-
-
-PROMENA NA PRIVILEGII - chmod
-
-chmod - gi menuva privilegiite na datotekite i imenicite
-sintaksa: chmod [options] mode file
-
-PRIMERI:
 chmod ug+rw sample
 chmod +r file
 chmod -x file
-chmod u=rw, go=file
-chmod +rw file chmod -R u+w, go-w docs/
-chmod 666 file chmod 755 file
+chmod u=rw,go= file
+chmod +rw file
+chmod -R u+w,go-w docs/
+chmod 666 file
+chmod 755 file
 chmod -R u+rwX,g-rwX,g-rwx,o-rwx <directory>
 
-NUMERIC MODE
-r = 4
-w = 2
-x = 1
+mv source destination
 
-KREIRANJE DATOTEKI
+mv moj.txt /users/student  # Moves moj.txt to /users/student
+mv moj.txt /users/student/mojnov.txt  # Renames and moves moj.txt
+mv student /users/admin  # Moves the directory student to /users/admin
+mv proba.txt moj.txt  # Renames proba.txt to moj.txt
 
-nano dat.txt - se otvara
+rm [options] file
 
-KOPIRANJE NA DATOTEKI -cp
-opcii:
+rm moj.txt  # Deletes moj.txt
+rm -r student  # Recursively deletes the directory student and its contents
+rm res.01 res.02  # Deletes both res.01 and res.02
 
--i, interaktiven rezim koj vazi za superkorisnik
--f, forsirran rezim
--l namesto kopija se kreira hard link
--s namesto kopija se kreira simbolicen link
--r rekurzivno kopiranje za obicni datoteki
--p opcija preserve
--b se kreira rezervna kopija
-
-PREMESTUVANJE NA DATOTEKI I IMENICI -mv
-mv izvor odrediste - IZVOROT MOZE DA BIDE I DATOTEKA I IMENIK
-destinacijata e pateka(apsolutna ili relativa) do noviot imenik kade se vrzi premestuvanjeto
-Ако се наведе ново име на датотеката (именикот), таа ќе биде преместена под новото име
-
-mv moj.txt /users/student - moj.txt se premestuva vo /users/student pod istoto ime
-mv moj.txt /users/student/mojnov.txt se premestuva vo /users/student pod novo ime mojnov.txt
-mv student/users/admin - imenikot student se premestuva vo /users/admin pod istoto ime
-mv proba.txt proba.txt se preimenuva vo moj.txt
-
-BRISENJE NA DATOTEKI I IMENICI -rm
-
-rm ime - za datoteki i prazni imenici
-rm moj.txt - moj.txt se brise
-rm - r imeimenik - za ovaa komanda e potrebno da se naogjame vo imenikot roditel na onoj sto se brise. So ova ke se izbrisat i site podimenici i datoteki na konkretniot imenik
-rm -r student - se brise imenikot student, so celate svoja sodrzina -r e za rekurzivno brisenje
-rm res.01 res.02 - gi brise dvete datoteki
-
-PRIKAZUVANJE NA DATOTEKA NA EKRAN
 cat file
-cat proveri.p
 
-MOZNI OPCII:
--b gi ignirira praznite linii i  go numerira sekoj red
--n fi numerira site linii ( i praznite)
--s gi otfrla dvojnite prazni redovi
-
-cat
-ovaa komanda iam povekje nacini na koristenje
-ke pokazeme deka mo\e da ja iskoristime za dodavanje na sodrzinata na krajot na datotekata, so koristenje na operatorot>>
-
-
-[    @os ~]$ cat >> results.csv
-Add line 1 to the end.
-This command appends the line "Add line 1 to the end." to the file results.csv.
-
-After typing the command, you can enter the text you want to append. To finish, press Ctrl+D.
-
-VIEWING FILE CONTENT
-[    @os ~]$ cat results.csv
-Index, Name, Surname, Points
-112233, Alex, Jones, 89
-117899, Don, Malik, 70
-123456, Sarah, Peterson, 60
-178999, Peter, Smith, 67
-199887, Luke, Jones, 65
+cat >> results.csv
 Add line 1 to the end.
 
-This command displays the contents of results.csv.
-
-The output shows the existing content of the file followed by the newly appended line "Add line 1 to the end."
-
-Practical Example
-Suppose you have a file named notes.txt with the following content:
+cat results.csv > res.csv  # Overwrites res.csv with contents of results.csv
 
 Task 1: Complete the report.
 Task 2: Send the email.
 
 cat >> notes.txt
 Task 3: Prepare the presentation.
-
-After pressing Ctrl+D, the file notes.txt will now contain:
-
-Copy
 Task 1: Complete the report.
 Task 2: Send the email.
 Task 3: Prepare the presentation.
 
-To view the updated content, you can use:
-
-bash
-Copy
 cat notes.txt
-This will display:
-
-Copy
-Task 1: Complete the report.
-Task 2: Send the email.
-Task 3: Prepare the presentation.
-This demonstrates how the cat command can be used to append text to a file and then view the updated contents.
-
-KOPIRANJE NA DATOTEI SO OPERATOROT >
-cat resultss.csv > res.csv - zapisue ga results u res isto (overwrite)
-
-# Using the `cat` Command
-
-The `cat` command in Unix-like operating systems is a versatile tool for displaying, concatenating, and manipulating file contents. Below are examples and explanations of its usage.
-
----
-
-## Displaying File Contents
-
-To display the contents of a file, use the `cat` command followed by the filename:
-
-```bash
-cat filename.txt
-
-cat one.txt
-This is the first file.
-
-cat two.txt
-This is the second file.
-````
+```
