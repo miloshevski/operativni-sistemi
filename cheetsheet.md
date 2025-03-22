@@ -144,3 +144,51 @@ ovaa komanda iam povekje nacini na koristenje
 ke pokazeme deka mo\e da ja iskoristime za dodavanje na sodrzinata na krajot na datotekata, so koristenje na operatorot>>
 
 
+[    @os ~]$ cat >> results.csv
+Add line 1 to the end.
+This command appends the line "Add line 1 to the end." to the file results.csv.
+
+After typing the command, you can enter the text you want to append. To finish, press Ctrl+D.
+
+VIEWING FILE CONTENT
+[    @os ~]$ cat results.csv
+Index, Name, Surname, Points
+112233, Alex, Jones, 89
+117899, Don, Malik, 70
+123456, Sarah, Peterson, 60
+178999, Peter, Smith, 67
+199887, Luke, Jones, 65
+Add line 1 to the end.
+
+This command displays the contents of results.csv.
+
+The output shows the existing content of the file followed by the newly appended line "Add line 1 to the end."
+
+Practical Example
+Suppose you have a file named notes.txt with the following content:
+
+Task 1: Complete the report.
+Task 2: Send the email.
+
+cat >> notes.txt
+Task 3: Prepare the presentation.
+
+After pressing Ctrl+D, the file notes.txt will now contain:
+
+Copy
+Task 1: Complete the report.
+Task 2: Send the email.
+Task 3: Prepare the presentation.
+
+To view the updated content, you can use:
+
+bash
+Copy
+cat notes.txt
+This will display:
+
+Copy
+Task 1: Complete the report.
+Task 2: Send the email.
+Task 3: Prepare the presentation.
+This demonstrates how the cat command can be used to append text to a file and then view the updated contents.
